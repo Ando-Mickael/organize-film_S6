@@ -1,0 +1,6 @@
+
+*.class
+target/classes/scripts/base.sql
+target/classes/scripts/cmd.txt
+target/classes/scripts/data.sql
+target/classes/scripts/dba.sql
