@@ -1,0 +1,1 @@
+psql -U ando -W foot < dba.sql
