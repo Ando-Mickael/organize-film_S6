@@ -14,17 +14,17 @@ public class Personnage {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
     String pseudo;
-    Integer filmId;
-    Integer acteurId;
+    Integer filmid;
+    Integer acteurid;
 
     public Personnage() {
     }
 
-    public Personnage(Integer id, String pseudo, Integer filmId, Integer acteurId) {
+    public Personnage(Integer id, String pseudo, Integer filmid, Integer acteurid) {
         this.id = id;
         this.pseudo = pseudo;
-        this.filmId = filmId;
-        this.acteurId = acteurId;
+        this.filmid = filmid;
+        this.acteurid = acteurid;
     }
 
     public Integer getId() {
@@ -43,20 +43,20 @@ public class Personnage {
         this.pseudo = pseudo;
     }
 
-    public Integer getFilmId() {
-        return filmId;
+    public Integer getFilmid() {
+        return filmid;
     }
 
-    public void setFilmId(Integer filmId) {
-        this.filmId = filmId;
+    public void setFilmid(Integer filmid) {
+        this.filmid = filmid;
     }
 
-    public Integer getActeurId() {
-        return acteurId;
+    public Integer getActeurid() {
+        return acteurid;
     }
 
-    public void setActeurId(Integer acteurId) {
-        this.acteurId = acteurId;
+    public void setActeurid(Integer acteurid) {
+        this.acteurid = acteurid;
     }
     
     

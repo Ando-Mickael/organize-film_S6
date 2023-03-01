@@ -17,22 +17,22 @@ public class DetailsScene {
     String texte;
     Double debut;
     Double fin;
-    Integer sceneId;
-    Integer expressionId;
-    Integer personnageId;
+    Integer sceneid;
+    Integer expressionid;
+    Integer personnageid;
 
     public DetailsScene() {
     }
 
-    public DetailsScene(Integer id, String action, String texte, Double debut, Double fin, Integer sceneId, Integer expressionId, Integer personnageId) {
+    public DetailsScene(Integer id, String action, String texte, Double debut, Double fin, Integer sceneid, Integer expressionid, Integer personnageid) {
         this.id = id;
         this.action = action;
         this.texte = texte;
         this.debut = debut;
         this.fin = fin;
-        this.sceneId = sceneId;
-        this.expressionId = expressionId;
-        this.personnageId = personnageId;
+        this.sceneid = sceneid;
+        this.expressionid = expressionid;
+        this.personnageid = personnageid;
     }
 
     public Integer getId() {
@@ -75,28 +75,28 @@ public class DetailsScene {
         this.fin = fin;
     }
 
-    public Integer getSceneId() {
-        return sceneId;
+    public Integer getSceneid() {
+        return sceneid;
     }
 
-    public void setSceneId(Integer sceneId) {
-        this.sceneId = sceneId;
+    public void setSceneid(Integer sceneid) {
+        this.sceneid = sceneid;
     }
 
-    public Integer getExpressionId() {
-        return expressionId;
+    public Integer getExpressionid() {
+        return expressionid;
     }
 
-    public void setExpressionId(Integer expressionId) {
-        this.expressionId = expressionId;
+    public void setExpressionid(Integer expressionid) {
+        this.expressionid = expressionid;
     }
 
-    public Integer getPersonnageId() {
-        return personnageId;
+    public Integer getPersonnageid() {
+        return personnageid;
     }
 
-    public void setPersonnageId(Integer personnageId) {
-        this.personnageId = personnageId;
+    public void setPersonnageid(Integer personnageid) {
+        this.personnageid = personnageid;
     }
 
 }

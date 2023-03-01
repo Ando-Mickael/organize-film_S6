@@ -14,15 +14,15 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
     String nom;
-    Integer auteurId;
+    Integer auteurid;
 
     public Film() {
     }
 
-    public Film(Integer id, String nom, Integer auteurId) {
+    public Film(Integer id, String nom, Integer auteurid) {
         this.id = id;
         this.nom = nom;
-        this.auteurId = auteurId;
+        this.auteurid = auteurid;
     }
 
     public Integer getId() {
@@ -41,12 +41,12 @@ public class Film {
         this.nom = nom;
     }
 
-    public Integer getAuteurId() {
-        return auteurId;
+    public Integer getAuteurid() {
+        return auteurid;
     }
 
-    public void setAuteurId(Integer auteurId) {
-        this.auteurId = auteurId;
+    public void setAuteurid(Integer auteurid) {
+        this.auteurid = auteurid;
     }
 
 }

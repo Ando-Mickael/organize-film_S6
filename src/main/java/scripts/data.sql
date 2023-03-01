@@ -76,3 +76,24 @@ VALUES
     ('Ealing Studios'),
     ('The Burbank Studios');
 
+INSERT INTO scene (nom,duree,plateauid,filmid) VALUES
+    ('course',15.0,8,8),
+    ('poursuite',30.0,5,8),
+    ('suspense',10.0,4,8),
+    ('trahison',5.0,9,8),
+    ('retrouvaille',20.0,3,8),
+    ('combat',30.0,1,8),
+    ('trsitesse',10.0,4,8);
+
+INSERT INTO public.detailsscene ("action",texte,debut,fin,sceneid,expressionid,personnageid) VALUES
+    ('sortir une arme',NULL,0.0,2.0,1,9,8),
+    ('regarder son adversaire','vien ici si tu ose',3.0,10.0,1,8,8),
+    ('repondre a la provocation','j arrive',11.0,18.0,1,2,6),
+    ('regarder le combat','arreter s il vous plait',19.0,25.0,4,3,4),
+    ('coupe une main','tien',26.0,30.0,7,3,6),
+    ('se coupe une main','argh',30.0,35.0,1,3,8),
+    ('se precipite ','noonnnn',35.0,40.0,7,10,4),
+    ('poser une question','pas encore reveiller',41.0,50.0,6,1,1),
+    ('repondre a la question','comme tu le vois',51.0,60.0,6,2,2),
+    ('poser une question','ou il est?',60.0,70.0,4,1,1),
+    ('repondre a la question','je ne peut pas te le dire',71.0,80.0,4,4,2);

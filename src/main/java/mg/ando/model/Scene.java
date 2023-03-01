@@ -15,18 +15,18 @@ public class Scene {
     Integer id;
     String nom;
     Double duree;
-    Integer plateauId;
-    Integer filmId;
+    Integer plateauid;
+    Integer filmid;
 
     public Scene() {
     }
 
-    public Scene(Integer id, String nom, Double duree, Integer plateauId, Integer filmId) {
+    public Scene(Integer id, String nom, Double duree, Integer plateauid, Integer filmid) {
         this.id = id;
         this.nom = nom;
         this.duree = duree;
-        this.plateauId = plateauId;
-        this.filmId = filmId;
+        this.plateauid = plateauid;
+        this.filmid = filmid;
     }
 
     public Integer getId() {
@@ -53,20 +53,20 @@ public class Scene {
         this.duree = duree;
     }
 
-    public Integer getPlateauId() {
-        return plateauId;
+    public Integer getPlateauid() {
+        return plateauid;
     }
 
-    public void setPlateauId(Integer plateauId) {
-        this.plateauId = plateauId;
+    public void setPlateauid(Integer plateauid) {
+        this.plateauid = plateauid;
     }
 
-    public Integer getFilmId() {
-        return filmId;
+    public Integer getFilmid() {
+        return filmid;
     }
 
-    public void setFilmId(Integer filmId) {
-        this.filmId = filmId;
+    public void setFilmid(Integer filmid) {
+        this.filmid = filmid;
     }
 
 }
