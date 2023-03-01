@@ -1,5 +1,6 @@
 package mg.ando.model;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -67,6 +68,16 @@ public class Scene {
 
     public void setFilmid(Integer filmid) {
         this.filmid = filmid;
+    }
+    
+    public static double dureeTotale(List<Scene> listScene) {
+        double result = 0;
+        
+        for (Scene tmp : listScene) {
+            result += tmp.getDuree();
+        }
+        
+        return result;
     }
 
 }

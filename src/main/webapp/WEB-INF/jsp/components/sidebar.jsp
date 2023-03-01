@@ -5,22 +5,15 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="${pageContext.request.contextPath}/films">
-                <i class="bi bi-grid"></i>
+                <i class="bi bi-house-door"></i>
                 <span>Films</span>
             </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="${pageContext.request.contextPath}/organiser">
-                <i class="bi bi-dash-circle"></i>
+                <i class="bi bi-calendar4-event"></i>
                 <span>Organiser</span>
-            </a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/agenda">
-                <i class="bi bi-file-earmark"></i>
-                <span>Agenda</span>
             </a>
         </li>
 

@@ -1,7 +1,6 @@
 <%
-    String pageInclude = String.format("%s.jsp", request.getAttribute("page"));
+    String pageInclude = (request.getAttribute("page") != null) ? String.format("%s.jsp", request.getAttribute("page")) : "components/films.jsp";
     System.out.println(pageInclude);
-    
 %>
 
 <!DOCTYPE html>
@@ -43,23 +42,7 @@
 
         <%@include file="components/sidebar.jsp" %>
 
-        <main id="main" class="main">
-
-            <div class="pagetitle">
-                <h1>Dashboard</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </nav>
-            </div>
-
-            <section class="section">
-                <jsp:include page="<%=pageInclude%>" />
-            </section>
-
-        </main>
+        <jsp:include page="<%=pageInclude%>" />
 
         <%@include file="components/footer.jsp" %>
 

@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect("test");
+    response.sendRedirect("films");
 %>
