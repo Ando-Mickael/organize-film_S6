@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect("invite");
+    response.sendRedirect("test");
 %>
