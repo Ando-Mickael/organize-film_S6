@@ -6,7 +6,7 @@
     <groupId>mg.ando</groupId>
     <artifactId>film</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>organize_film</name>
+    <name>organize_film_Git</name>
     <packaging>war</packaging>
 
     <properties>

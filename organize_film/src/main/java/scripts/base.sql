@@ -103,6 +103,18 @@ ALTER TABLE
 ADD
 	FOREIGN KEY (Auteurid) REFERENCES Auteur (id);
 
+-- view
+create or REPLACE view listeScene as
+select 
+    s.filmid as filmID,
+    p.id as PlateauID ,
+    p.nom as Plateau ,
+    s.id as Sceneid,
+    s.duree as duree
+    from Scene s
+    join Plateau p on p.id = s.Plateauid
+    group by p.id , p.nom , s.id , s.filmid;
+
 -- types
 CREATE TYPE agendaType AS (
     IdScene INT,

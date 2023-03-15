@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import mg.ando.dao.HibernateDao;
+import mg.ando.model.Acteur;
 import mg.ando.model.DetailsScene;
 import mg.ando.model.Film;
+import mg.ando.model.Plateau;
 import mg.ando.model.Scene;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,20 @@ public class MyController {
     public String login() {
         return "login";
     }
+    
+    // Reynolds' Modif
+    @GetMapping("/disponibilite")
+    public String disponibilite(Model model) {
+        model.addAttribute("plateaux", dao.findAll(Plateau.class));
+        model.addAttribute("acteurs", dao.findAll(Acteur.class));
+        
+        model.addAttribute("page", "components/disponibilite");
+        model.addAttribute("dao", dao);
+        
+        return "index";
+    }
+    
+    //
 
     @GetMapping("/agenda")
     public String agenda(Model model, @RequestParam String idFilm) {
