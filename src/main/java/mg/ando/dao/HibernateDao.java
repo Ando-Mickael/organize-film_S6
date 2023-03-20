@@ -1,19 +1,16 @@
 package mg.ando.dao;
 
-import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import mg.ando.model.Element;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 public class HibernateDao {
 
@@ -55,9 +52,9 @@ public class HibernateDao {
         Session session = sessionFactory.openSession();
         Example example = Example.create(entity).ignoreCase();
         List<T> results = session.createCriteria(entity.getClass())
-                .add(example)
-                .setFirstResult(offset)
-                .setMaxResults(offset + size).list();
+            .add(example)
+            .setFirstResult(offset)
+            .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -65,8 +62,8 @@ public class HibernateDao {
     public <T> List<T> paginate(Class<T> clazz, int offset, int size) {
         Session session = sessionFactory.openSession();
         List<T> results = session.createCriteria(clazz)
-                .setFirstResult(offset)
-                .setMaxResults(offset + size).list();
+            .setFirstResult(offset)
+            .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -75,9 +72,9 @@ public class HibernateDao {
         Session session = sessionFactory.openSession();
         Order order = (orderAsc) ? Order.asc(orderBy) : Order.desc(orderBy);
         List<T> results = session.createCriteria(clazz)
-                .addOrder(order)
-                .setFirstResult(offset)
-                .setMaxResults(offset + size).list();
+            .addOrder(order)
+            .setFirstResult(offset)
+            .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -110,98 +107,27 @@ public class HibernateDao {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    
+
 //    spec...
-    public List<Object> selectWpagination(Class<?> clazz, int first_element, int max_result) throws Exception {
-        List<Object> data = new ArrayList<>();
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
-            session.beginTransaction();
-            Query query = session.createQuery("from " + clazz.getSimpleName() + " where (statut = 1) and (date_publication <= now())");
-            query.setFirstResult(first_element);
-            query.setMaxResults(max_result);
-            for (Object row : query.list()) {
-                data.add(row);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        } finally {
-            session.close();
-        }
-        return data;
-    }
-
-    public List<Object> selectWhere(Class<?> clazz, String pattern) throws Exception {
+    public List<Object> selectSceneDetail(Class<?> clazz, int idScene) throws Exception {
         Session session = sessionFactory.openSession();
         try {
             Criteria criteria = session.createCriteria(clazz);
-            criteria.add(Restrictions.like("titre", "%" + pattern + "%").ignoreCase());
-            criteria.add(Restrictions.eq("statut", 1));
+            criteria.add(Restrictions.eq("sceneid", idScene));
             return criteria.list();
         } finally {
             session.close();
         }
     }
 
-    public Object login(Class<?> clazz, String username, String password) {
+    public List<Object> selectSceneFilm(Class<?> clazz, int idFilm) throws Exception {
         Session session = sessionFactory.openSession();
         try {
             Criteria criteria = session.createCriteria(clazz);
-            criteria.add(Restrictions.eq("email", username));
-            criteria.add(Restrictions.eq("mdp", password));
-            Object user = criteria.uniqueResult();
-            return user;
-        } finally {
-            session.close();
-        }
-    }
-
-    public List<Object> selectNonPubliees(Class<?> clazz) throws Exception {
-        Session session = sessionFactory.openSession();
-        try {
-            Criteria criteria = session.createCriteria(clazz);
-            criteria.add(Restrictions.eq("statut", 0));
+            criteria.add(Restrictions.eq("filmid", idFilm));
             return criteria.list();
         } finally {
             session.close();
         }
     }
-    
-    public List<Element> selectFavoris() throws Exception {
-        Session session = sessionFactory.openSession();
-        try {
-            Criteria criteria = session.createCriteria(Element.class);
-            criteria.add(Restrictions.isNotNull("favori"));
-            criteria.addOrder(Order.desc("favori"));
-            return criteria.list();
-        } finally {
-            session.close();
-        }
-    }
-    
-    public List<Element> selectNotFavoris() throws Exception {
-        Session session = sessionFactory.openSession();
-        try {
-            Criteria criteria = session.createCriteria(Element.class);
-            criteria.add(Restrictions.isNull("favori"));
-            criteria.addOrder(Order.desc("date_publication"));
-            return criteria.list();
-        } finally {
-            session.close();
-        }
-    }
-    
-    public List<Element> selectByAuteur(int id_auteur) throws Exception {
-        Session session = sessionFactory.openSession();
-        try {
-            Criteria criteria = session.createCriteria(Element.class);
-            criteria.add(Restrictions.eq("id_auteur", id_auteur));
-            return criteria.list();
-        } finally {
-            session.close();
-        }
-    }
-    
 }
