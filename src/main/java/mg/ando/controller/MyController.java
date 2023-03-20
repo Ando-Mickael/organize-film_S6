@@ -17,8 +17,8 @@ public class MyController {
     @Autowired
     HibernateDao dao;
 
-    @GetMapping("/test")
-    public String test() {
+    @GetMapping("/index")
+    public String index() {
         return "index";
     }
 
@@ -28,8 +28,11 @@ public class MyController {
     }
 
     @GetMapping("/agenda")
-    public String agenda(Model model) {
+    public String agenda(Model model, @RequestParam String idFilm) {
+        model.addAttribute("scenes", dao.selectAgendaFilm(idFilm));
         model.addAttribute("page", "components/agenda");
+        model.addAttribute("dao", dao);
+        
         return "index";
     }
 
@@ -37,12 +40,14 @@ public class MyController {
     public String films(Model model) {
         model.addAttribute("films", dao.findAll(Film.class));
         model.addAttribute("page", "components/films");
+        model.addAttribute("dao", dao);
         return "index";
     }
 
     @GetMapping("/organiser")
     public String organiser(Model model) {
         model.addAttribute("page", "components/organiser");
+        model.addAttribute("films", dao.findAll(Film.class));
         return "index";
     }
 
@@ -50,6 +55,7 @@ public class MyController {
     public String scenes(Model model, @RequestParam int idFilm) throws Exception {
         model.addAttribute("scenes", dao.selectSceneFilm(Scene.class, idFilm));
         model.addAttribute("page", "components/scenes");
+        model.addAttribute("dao", dao);
         return "index";
     }
 
@@ -57,6 +63,7 @@ public class MyController {
     public String detailsScene(Model model, @RequestParam int idScene) throws Exception {
         model.addAttribute("detailsScene", dao.selectSceneDetail(DetailsScene.class, idScene));
         model.addAttribute("page", "components/detailsScene");
+        model.addAttribute("dao", dao);
         return "index";
     }
 

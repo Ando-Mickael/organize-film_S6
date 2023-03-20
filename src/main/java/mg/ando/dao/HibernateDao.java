@@ -8,8 +8,12 @@ import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Order;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import mg.ando.model.Scene;
+import mg.ando.type.AgendaType;
 import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Restrictions;
 
 public class HibernateDao {
@@ -130,4 +134,25 @@ public class HibernateDao {
             session.close();
         }
     }
+
+    public List<AgendaType> selectAgendaFilm(String idFilm) {
+        List<AgendaType> result = new ArrayList<>();
+        Session session = sessionFactory.openSession();
+        SQLQuery query = session.createSQLQuery(String.format("select * from agendaScene(%s)", idFilm));
+        List<Object[]> rows = query.list();
+        for (Object[] row : rows) {
+            AgendaType tmp = new AgendaType();
+
+            tmp.setIdScene((int) row[0]);
+            tmp.setIdPlateau((int) row[1]);
+            tmp.setPlateau((String) row[2]);
+            tmp.setDuree((float) row[3]);
+            tmp.setJour((int) row[4]);
+
+            result.add(tmp);
+        }
+
+        return result;
+    }
+
 }
