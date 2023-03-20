@@ -27,7 +27,7 @@ DECLARE
     jour INT := 0; 
     row RECORD;
 BEGIN
-    FOR row IN SELECT Sceneid , plateau, duree , PlateauID FROM listeScene where filmID = IDFilm order by Sceneid LOOP
+    FOR row IN SELECT Sceneid , plateau, duree , PlateauID FROM listeScene where filmID = IDFilm order by PlateauID LOOP
         dureeTotal := dureeTotal + row.duree;
         if dureeTotal > dureeTravaille then
             jour := jour + 1;
