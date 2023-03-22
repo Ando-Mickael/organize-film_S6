@@ -1,11 +1,17 @@
 package mg.ando.controller;
 
+import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import mg.ando.dao.HibernateDao;
+import mg.ando.model.Acteur;
+import mg.ando.model.Auteur;
 import mg.ando.model.DetailsScene;
 import mg.ando.model.Film;
+import mg.ando.model.IndisponibiliteActeur;
+import mg.ando.model.IndisponibilitePlateau;
+import mg.ando.model.Plateau;
 import mg.ando.model.Scene;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MyController {
 
     @Autowired
-    HibernateDao dao;
-
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
+    public HibernateDao dao;
 
     @GetMapping("/login")
     public String login() {
@@ -41,6 +42,7 @@ public class MyController {
         model.addAttribute("films", dao.findAll(Film.class));
         model.addAttribute("page", "components/films");
         model.addAttribute("dao", dao);
+		dao.create(new IndisponibilitePlateau(1, Date.valueOf("2022-05-05")));
         return "index";
     }
 
@@ -64,6 +66,28 @@ public class MyController {
         model.addAttribute("detailsScene", dao.selectSceneDetail(DetailsScene.class, idScene));
         model.addAttribute("page", "components/detailsScene");
         model.addAttribute("dao", dao);
+        return "index";
+    }
+    
+    @GetMapping("/disponibilite")
+    public String disponibilite(Model model) {
+        model.addAttribute("plateaux", dao.findAll(Plateau.class));
+        model.addAttribute("acteurs", dao.findAll(Acteur.class));
+        model.addAttribute("page", "components/disponibilite");
+        model.addAttribute("dao", dao);
+        
+        return "index";
+    }
+    
+    @GetMapping("/indispoActeur")
+    public String indispoActeur(Model model, @RequestParam Integer idActeur, @RequestParam String dateDebut) {
+		dao.create(new IndisponibiliteActeur(idActeur, Date.valueOf(dateDebut)));
+        return "index";
+    }
+    
+    @GetMapping("/indispoPlateau")
+    public String indispoPlateau(Model model, @RequestParam Integer idPlateau, @RequestParam String dateDebut) {
+        dao.create(new IndisponibilitePlateau(idPlateau, java.sql.Date.valueOf(dateDebut)));
         return "index";
     }
 

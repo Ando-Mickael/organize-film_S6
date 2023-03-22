@@ -1,5 +1,6 @@
 package mg.ando.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,10 +12,13 @@ import javax.persistence.Table;
 public class Film {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+	
     String nom;
-    Integer auteurid;
+    
+	@Column(name = "auteurid")
+	Integer auteurid;
 
     public Film() {
     }

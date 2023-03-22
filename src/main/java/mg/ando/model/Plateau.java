@@ -11,9 +11,10 @@ import javax.persistence.Table;
 public class Plateau {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String nom;
+    
+	String nom;
 
     public Plateau() {
     }

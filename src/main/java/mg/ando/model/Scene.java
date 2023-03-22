@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Scene {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String nom;
     Double duree;

@@ -62,6 +62,18 @@ CREATE TABLE Scene (
 	PRIMARY KEY (id)
 );
 
+create table IndisponibiliteActeur (
+    id serial primary key,
+    acteurId int references Acteur(id),
+    date date
+);
+
+create table IndisponibilitePlateau (
+    id serial primary key,
+    plateauId int references Plateau(id),
+    date date
+);
+
 -- constraints
 ALTER TABLE
 	Personnage
@@ -112,6 +124,17 @@ CREATE TYPE agendaType AS (
     jour INT
 );
 
+-- views
+CREATE OR REPLACE VIEW public.listescene
+AS SELECT s.filmid,
+    p.id AS plateauid,
+    p.nom AS plateau,
+    s.id AS sceneid,
+    s.duree
+   FROM scene s
+     JOIN plateau p ON p.id = s.plateauid
+  GROUP BY p.id, p.nom, s.id, s.filmid;
+
 -- functions
 CREATE OR REPLACE FUNCTION agendaScene(IDFilm INTEGER)
 RETURNS SETOF agendaType AS $$
@@ -121,7 +144,7 @@ DECLARE
     jour INT := 0; 
     row RECORD;
 BEGIN
-    FOR row IN SELECT Sceneid , plateau, duree , PlateauID FROM listeScene where filmID = IDFilm order by Sceneid LOOP
+    FOR row IN SELECT Sceneid , plateau, duree , PlateauID FROM listeScene where filmID = IDFilm order by PlateauID LOOP
         dureeTotal := dureeTotal + row.duree;
         if dureeTotal > dureeTravaille then
             jour := jour + 1;
@@ -133,3 +156,4 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+

@@ -10,93 +10,110 @@ import javax.persistence.Table;
 @Table(name = "detailsscene")
 public class DetailsScene {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
-    String action;
-    String texte;
-    Double debut;
-    Double fin;
-    Integer sceneid;
-    Integer expressionid;
-    Integer personnageid;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
+	String action;
+	
+	String texte;
+	
+	Double debut;
+	
+	Double fin;
+	
+	Integer sceneid;
+	
+	Integer expressionid;
+	
+	Integer personnageid;
 
-    public DetailsScene() {
-    }
+	public DetailsScene() {
+	}
 
-    public DetailsScene(Integer id, String action, String texte, Double debut, Double fin, Integer sceneid, Integer expressionid, Integer personnageid) {
-        this.id = id;
-        this.action = action;
-        this.texte = texte;
-        this.debut = debut;
-        this.fin = fin;
-        this.sceneid = sceneid;
-        this.expressionid = expressionid;
-        this.personnageid = personnageid;
-    }
+	public DetailsScene(Integer id, String action, String texte, Double debut, Double fin, Integer sceneid, Integer expressionid, Integer personnageid) {
+		this.id = id;
+		this.action = action;
+		this.texte = texte;
+		this.debut = debut;
+		this.fin = fin;
+		this.sceneid = sceneid;
+		this.expressionid = expressionid;
+		this.personnageid = personnageid;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public DetailsScene(String action, String texte, Double debut, Double fin, Integer sceneid, Integer expressionid, Integer personnageid) {
+		this.action = action;
+		this.texte = texte;
+		this.debut = debut;
+		this.fin = fin;
+		this.sceneid = sceneid;
+		this.expressionid = expressionid;
+		this.personnageid = personnageid;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getAction() {
-        return action;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setAction(String action) {
-        this.action = action;
-    }
+	public String getAction() {
+		return action;
+	}
 
-    public String getTexte() {
-        return texte;
-    }
+	public void setAction(String action) {
+		this.action = action;
+	}
 
-    public void setTexte(String texte) {
-        this.texte = texte;
-    }
+	public String getTexte() {
+		return texte;
+	}
 
-    public Double getDebut() {
-        return debut;
-    }
+	public void setTexte(String texte) {
+		this.texte = texte;
+	}
 
-    public void setDebut(Double debut) {
-        this.debut = debut;
-    }
+	public Double getDebut() {
+		return debut;
+	}
 
-    public Double getFin() {
-        return fin;
-    }
+	public void setDebut(Double debut) {
+		this.debut = debut;
+	}
 
-    public void setFin(Double fin) {
-        this.fin = fin;
-    }
+	public Double getFin() {
+		return fin;
+	}
 
-    public Integer getSceneid() {
-        return sceneid;
-    }
+	public void setFin(Double fin) {
+		this.fin = fin;
+	}
 
-    public void setSceneid(Integer sceneid) {
-        this.sceneid = sceneid;
-    }
+	public Integer getSceneid() {
+		return sceneid;
+	}
 
-    public Integer getExpressionid() {
-        return expressionid;
-    }
+	public void setSceneid(Integer sceneid) {
+		this.sceneid = sceneid;
+	}
 
-    public void setExpressionid(Integer expressionid) {
-        this.expressionid = expressionid;
-    }
+	public Integer getExpressionid() {
+		return expressionid;
+	}
 
-    public Integer getPersonnageid() {
-        return personnageid;
-    }
+	public void setExpressionid(Integer expressionid) {
+		this.expressionid = expressionid;
+	}
 
-    public void setPersonnageid(Integer personnageid) {
-        this.personnageid = personnageid;
-    }
+	public Integer getPersonnageid() {
+		return personnageid;
+	}
+
+	public void setPersonnageid(Integer personnageid) {
+		this.personnageid = personnageid;
+	}
 
 }
