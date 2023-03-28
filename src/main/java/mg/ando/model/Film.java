@@ -11,46 +11,33 @@ import javax.persistence.Table;
 @Table(name = "film")
 public class Film {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-	
-    String nom;
-    
-	@Column(name = "auteurid")
-	Integer auteurid;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
 
-    public Film() {
-    }
+	String nom;
 
-    public Film(Integer id, String nom, Integer auteurid) {
-        this.id = id;
-        this.nom = nom;
-        this.auteurid = auteurid;
-    }
+	public Film() {
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Film(String nom) {
+		this.nom = nom;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getNom() {
-        return nom;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public String getNom() {
+		return nom;
+	}
 
-    public Integer getAuteurid() {
-        return auteurid;
-    }
-
-    public void setAuteurid(Integer auteurid) {
-        this.auteurid = auteurid;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 }
