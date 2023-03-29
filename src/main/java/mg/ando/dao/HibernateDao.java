@@ -19,7 +19,7 @@ public class HibernateDao {
 
     private SessionFactory sessionFactory;
 
-//    generalize
+    // generalize
     public <T> T create(T entity) {
         Session session = sessionFactory.openSession();
         session.saveOrUpdate(entity);
@@ -109,7 +109,19 @@ public class HibernateDao {
         this.sessionFactory = sessionFactory;
     }
 
-//    spec...
+    // spec...
+
+    public <T> List<T> getSceneDetail(Class<?> clazz, int idScene) throws Exception {
+        Session session = sessionFactory.openSession();
+        try {
+            Criteria criteria = session.createCriteria(clazz);
+            criteria.add(Restrictions.eq("sceneid", idScene));
+            return criteria.list();
+        } finally {
+            session.close();
+        }
+    }
+
     public List<Object> selectSceneDetail(Class<?> clazz, int idScene) throws Exception {
         Session session = sessionFactory.openSession();
         try {
@@ -151,6 +163,5 @@ public class HibernateDao {
 
         return result;
     }
-    
 
 }
