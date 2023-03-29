@@ -24,6 +24,7 @@ public class MyController {
 		model.addAttribute("films", dao.findAll(Film.class));
 		model.addAttribute("page", "components/films");
 		model.addAttribute("dao", dao);
+
 		return "index";
 	}
 
@@ -56,7 +57,7 @@ public class MyController {
 	}
 
 	@GetMapping("/agenda")
-	public String agenda(Model model, @RequestParam String idFilm) {
+	public String agenda(Model model, @RequestParam String idFilm) throws Exception {
 		model.addAttribute("scenes", dao.selectAgendaFilm(idFilm));
 		model.addAttribute("page", "components/agenda");
 		model.addAttribute("dao", dao);
@@ -73,5 +74,5 @@ public class MyController {
 
 		return "index";
 	}
-
+	
 }

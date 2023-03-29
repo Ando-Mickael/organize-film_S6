@@ -17,22 +17,28 @@ public class Scene {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 
+	@Column(name = "nom")
 	String nom;
 
+	@Column(name = "duree")
 	Double duree;
 
+	@Column(name = "plateauid")
 	Integer plateauid;
 
+	@Column(name = "filmid")
 	Integer filmid;
 
 	@Column(name = "auteurid")
 	Integer auteurid;
 
+	@Column(name = "ordre")
 	Integer ordre;
 
-	@Column(name = "dateplanning")
-	Date datePlanning;
+	@Column(name = "dateplanification")
+	Date dateplanification;
 
+	@Column(name = "status")
 	Integer status;
 
 //	construct
@@ -96,12 +102,12 @@ public class Scene {
 		this.ordre = ordre;
 	}
 
-	public Date getDatePlanning() {
-		return datePlanning;
+	public Date getdateplanification() {
+		return dateplanification;
 	}
 
-	public void setDatePlanning(Date datePlanning) {
-		this.datePlanning = datePlanning;
+	public void setDateplanification(Date dateplanification) {
+		this.dateplanification = dateplanification;
 	}
 
 	public Integer getStatus() {
@@ -118,6 +124,11 @@ public class Scene {
 
 	public void setAuteurid(Integer auteurid) {
 		this.auteurid = auteurid;
+	}
+
+	@Override
+	public String toString() {
+		return "Scene{" + "id=" + id + ", nom=" + nom + ", duree=" + duree + ", plateauid=" + plateauid + ", filmid=" + filmid + ", auteurid=" + auteurid + ", ordre=" + ordre + ", dateplanification=" + dateplanification + ", status=" + status + '}';
 	}
 
 //	my functions
