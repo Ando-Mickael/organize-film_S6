@@ -10,7 +10,6 @@ import org.hibernate.criterion.Order;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import mg.ando.model.Scene;
 import mg.ando.type.AgendaType;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
@@ -23,9 +22,7 @@ public class HibernateDao {
 //    generalize
     public <T> T create(T entity) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(entity);
-        transaction.commit();
         session.close();
         return entity;
     }
@@ -56,9 +53,9 @@ public class HibernateDao {
         Session session = sessionFactory.openSession();
         Example example = Example.create(entity).ignoreCase();
         List<T> results = session.createCriteria(entity.getClass())
-            .add(example)
-            .setFirstResult(offset)
-            .setMaxResults(offset + size).list();
+                .add(example)
+                .setFirstResult(offset)
+                .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -66,8 +63,8 @@ public class HibernateDao {
     public <T> List<T> paginate(Class<T> clazz, int offset, int size) {
         Session session = sessionFactory.openSession();
         List<T> results = session.createCriteria(clazz)
-            .setFirstResult(offset)
-            .setMaxResults(offset + size).list();
+                .setFirstResult(offset)
+                .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -76,9 +73,9 @@ public class HibernateDao {
         Session session = sessionFactory.openSession();
         Order order = (orderAsc) ? Order.asc(orderBy) : Order.desc(orderBy);
         List<T> results = session.createCriteria(clazz)
-            .addOrder(order)
-            .setFirstResult(offset)
-            .setMaxResults(offset + size).list();
+                .addOrder(order)
+                .setFirstResult(offset)
+                .setMaxResults(offset + size).list();
         session.close();
         return results;
     }
@@ -154,5 +151,6 @@ public class HibernateDao {
 
         return result;
     }
+    
 
 }

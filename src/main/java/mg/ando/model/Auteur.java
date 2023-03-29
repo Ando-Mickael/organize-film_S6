@@ -10,33 +10,38 @@ import javax.persistence.Table;
 @Table(name = "auteur")
 public class Auteur {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
-    String nom;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
+	String nom;
 
-    public Auteur() {
-    }
+	public Auteur() {
+	}
 
-    public Auteur(Integer id, String nom) {
-        this.id = id;
-        this.nom = nom;
-    }
+	public Auteur(Integer id, String nom) {
+		this.id = id;
+		this.nom = nom;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Auteur(String nom) {
+		this.nom = nom;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getNom() {
-        return nom;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 }

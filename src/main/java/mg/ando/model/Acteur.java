@@ -1,6 +1,7 @@
 package mg.ando.model;
 
 import java.sql.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,65 +12,75 @@ import javax.persistence.Table;
 @Table(name = "acteur")
 public class Acteur {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
-    String nom;
-    String prenom;
-    Date dateNaissance;
-    String sexe;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
+	
+	String nom;
+	
+	String prenom;
+	
+	@Column(name = "datenaissance")
+	Date dateNaissance;
+	
+	String sexe;
 
-    public Acteur() {
-    }
+	public Acteur() {
+	}
 
-    public Acteur(Integer id, String nom, String prenom, Date dateNaissance, String sexe) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.dateNaissance = dateNaissance;
-        this.sexe = sexe;
-    }
+	public Acteur(Integer id, String nom, String prenom, Date dateNaissance, String sexe) {
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.sexe = sexe;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Acteur(String nom, String prenom, Date dateNaissance, String sexe) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.sexe = sexe;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getNom() {
-        return nom;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public String getNom() {
+		return nom;
+	}
 
-    public String getPrenom() {
-        return prenom;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+	public String getPrenom() {
+		return prenom;
+	}
 
-    public Date getDateNaissance() {
-        return dateNaissance;
-    }
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 
-    public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
-    }
+	public Date getDateNaissance() {
+		return dateNaissance;
+	}
 
-    public String getSexe() {
-        return sexe;
-    }
+	public void setDateNaissance(Date dateNaissance) {
+		this.dateNaissance = dateNaissance;
+	}
 
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
-    }
-    
-    
-    
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
 }

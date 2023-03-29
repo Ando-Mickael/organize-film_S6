@@ -11,8 +11,9 @@ import javax.persistence.Table;
 public class Expression {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+	
     String expression;
 
     public Expression() {

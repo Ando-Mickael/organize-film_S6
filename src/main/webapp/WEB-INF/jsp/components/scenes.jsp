@@ -28,6 +28,7 @@
                                     <th scope="col">Nom</th>
                                     <th scope="col">Duree</th>
                                     <th scope="col">Plateau</th>
+                                    <th scope="col">Auteurid</th>
                                     <th scope="col">Voir Details</th>
                                 </tr>
                             </thead>
@@ -40,6 +41,7 @@
                                     <th scope="row"><%=(scene.getId())%></th>
                                     <td><%=(scene.getNom())%></td>
                                     <td><%=(scene.getDuree())%> min</td>
+                                    <td><%=(scene.getAuteurid())%></td>
                                     <td><%=(p.getNom())%></td>
                                     <td><a href="detailsScene?idScene=<%=(scene.getId())%>"><span class="badge bg-success">Details</span></a></td>
                                 </tr>

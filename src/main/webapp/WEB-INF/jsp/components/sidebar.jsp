@@ -16,6 +16,13 @@
                 <span>Organiser</span>
             </a>
         </li>
+        
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="${pageContext.request.contextPath}/disponibilite">
+                <i class="bi bi-calendar4-event"></i>
+                <span>Disponiblite</span>
+            </a>
+        </li>
 
     </ul>
 

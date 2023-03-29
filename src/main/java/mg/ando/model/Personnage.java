@@ -11,11 +11,14 @@ import javax.persistence.Table;
 public class Personnage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+	
     String pseudo;
-    Integer filmid;
-    Integer acteurid;
+    
+	Integer filmid;
+    
+	Integer acteurid;
 
     public Personnage() {
     }
