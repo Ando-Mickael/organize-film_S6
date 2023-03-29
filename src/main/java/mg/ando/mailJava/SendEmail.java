@@ -5,13 +5,13 @@ import javax.mail.internet.*;
 import java.util.*;
 
 public class SendEmail {
-    public static void main(String[] args) {
+    public void send(String user , String password , String destinataire) {
         // informations sur l'expéditeur
-        String from = "medra7638@gmail.com";
-        String password = "ncyofjwniazygrbi";
+        String from = user;
+        String password = password;
 
         // informations sur le destinataire
-        String to = "miclimule@gmail.com";
+        String to = destinataire;
 
         // configuration du serveur SMTP
         String host = "smtp.gmail.com";
