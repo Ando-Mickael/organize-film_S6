@@ -2,12 +2,14 @@ mg\ando\model\IndisponibilitePlateau.class
 mg\ando\model\Acteur.class
 mg\ando\type\AgendaType.class
 mg\ando\model\Auteur.class
+mg\ando\mailJava\SendEmail.class
 mg\ando\model\DetailsScene.class
 mg\ando\service\MyPdf.class
 mg\ando\controller\ActeurController.class
 mg\ando\controller\PlateauController.class
 mg\ando\model\Film.class
 mg\ando\model\Personnage.class
+mg\ando\mailJava\SendEmail$1.class
 mg\ando\dao\HibernateDao.class
 mg\ando\model\IndisponibiliteActeur.class
 mg\ando\model\Plateau.class

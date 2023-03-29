@@ -1,14 +1,17 @@
-package mailJava;
+package mg.ando.mailJava;
 
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
 
 public class SendEmail {
-    public void send(String destinataire , String pdf) {
+    public void send(String destinataire, String pdf) {
         // informations sur l'expéditeur
-        String from = "medra7638@gmail.com";
-        String password = "ncyofjwniazygrbi";
+        // String from = "medra7638@gmail.com";
+        // String password = "ncyofjwniazygrbi";
+
+        String from = "reynoroch@gmail.com";
+        String password = "nbblypedjzjotuec";
 
         // informations sur le destinataire
         String to = destinataire;
