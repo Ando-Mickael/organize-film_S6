@@ -7,9 +7,6 @@ import java.util.*;
 public class SendEmail {
     public void send(String destinataire, String pdf) {
         // informations sur l'expéditeur
-        // String from = "medra7638@gmail.com";
-        // String password = "ncyofjwniazygrbi";
-
         String from = "reynoroch@gmail.com";
         String password = "nbblypedjzjotuec";
 
@@ -41,7 +38,7 @@ public class SendEmail {
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject("test d'envoi");
+            message.setSubject("Planning tournage");
 
             // création de la pièce jointe
             MimeBodyPart attachmentPart = new MimeBodyPart();
@@ -49,7 +46,7 @@ public class SendEmail {
 
             // création du corps du message
             MimeBodyPart textPart = new MimeBodyPart();
-            textPart.setText("Bonjour,\n\nCi-joint un fichier PDF.\n\nCordialement,\nVotre Nom");
+            textPart.setText("Bonjour,\n\nCi-joint un fichier PDF.\n\nCordialement,\nMG PRODUCTION");
 
             // création du message multi-part
             Multipart multipart = new MimeMultipart();
