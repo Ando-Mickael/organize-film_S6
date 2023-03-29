@@ -1,6 +1,8 @@
+<%@page import="mg.ando.model.Scene"%>
+<%@page import="java.util.List"%>
 <%
     String pageInclude = (request.getAttribute("page") != null) ? String.format("%s.jsp", request.getAttribute("page")) : "components/films.jsp";
-    System.out.println(pageInclude);
+
 %>
 
 <!DOCTYPE html>

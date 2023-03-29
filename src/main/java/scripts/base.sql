@@ -115,6 +115,8 @@ ALTER TABLE
 ADD
 	FOREIGN KEY (Auteurid) REFERENCES Auteur (id);
 
+ALTER table Scene add datePlanification timestamp;
+
 -- types
 CREATE TYPE agendaType AS (
     IdScene INT,
@@ -125,15 +127,17 @@ CREATE TYPE agendaType AS (
 );
 
 -- views
-CREATE OR REPLACE VIEW public.listescene
-AS SELECT s.filmid,
-    p.id AS plateauid,
-    p.nom AS plateau,
-    s.id AS sceneid,
-    s.duree
-   FROM scene s
-     JOIN plateau p ON p.id = s.plateauid
-  GROUP BY p.id, p.nom, s.id, s.filmid;
+create or REPLACE view listeScene as
+select 
+    s.filmid as filmID,
+    p.id as PlateauID ,
+    p.nom as Plateau ,
+    s.id as Sceneid,
+    s.duree as duree,
+    s.datePlanification as datePlanification
+    from Scene s
+    join Plateau p on p.id = s.Plateauid
+    group by p.id , p.nom , s.id , s.filmid;
 
 -- functions
 CREATE OR REPLACE FUNCTION agendaScene(IDFilm INTEGER)
@@ -144,16 +148,25 @@ DECLARE
     jour INT := 0; 
     row RECORD;
 BEGIN
-    FOR row IN SELECT Sceneid , plateau, duree , PlateauID FROM listeScene where filmID = IDFilm order by PlateauID LOOP
-        dureeTotal := dureeTotal + row.duree;
-        if dureeTotal > dureeTravaille then
-            jour := jour + 1;
-            dureeTotal := row.duree;
-        end if;
-        RETURN NEXT (row.Sceneid , row.PlateauID ,row.plateau, row.duree, (jour) :: INT);
-        
+    FOR row IN SELECT Sceneid , plateau, duree , PlateauID , datePlanification FROM listeScene where filmID = IDFilm order by PlateauID LOOP
+        IF row.datePlanification IS NULL THEN
+            dureeTotal := dureeTotal + row.duree;
+            IF dureeTotal > dureeTravaille THEN
+                jour := jour + 1;
+                dureeTotal := row.duree;
+            END IF;
+            RETURN NEXT (row.Sceneid , row.PlateauID ,row.plateau, row.duree, (jour) :: INT);
+        END IF;
     END LOOP;
 END;
 $$
 LANGUAGE plpgsql;
 
+
+create or replace view v_plateau_indispo_now as (
+	select * from indisponibiliteplateau i where date = date(now())
+);
+
+create or replace view v_acteur_indispo_now as (
+	select * from indisponibiliteacteur i where date = date(now())
+);
