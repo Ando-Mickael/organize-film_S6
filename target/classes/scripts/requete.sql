@@ -56,7 +56,7 @@ $$
 LANGUAGE plpgsql;
 
 
-select * from agendaScene(8);
+-- select * from agendaScene(8,'2023-03-29');
 
 drop type agendaType cascade; 
 

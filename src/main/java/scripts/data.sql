@@ -176,13 +176,13 @@ VALUES
         'lets go',
         0.0,
         45.0,
-        13,
+        6,
         4,
         10
     ),
-    ('trouver son amie', 'ou il est', 45.0, 75.0, 13, 4, 10),
-    ('arriver a l aeroport', 'enfin', 45.0, 80.0, 13, 1, 9),
-    ('trouver son amie', 'ou il est', 81.0, 120.0, 13, 4, 9),
-    ('rencontre', '', 121.0, 150.0, 16, 4, 9),
-    ('rencontre', '', 151.0, 170.0, 16, 4, 10),
-    ('voyager', 'lets go', 171.0, 651.0, 13, 4, 10);
+    ('trouver son amie', 'ou il est', 45.0, 75.0, 6, 4, 10),
+    ('arriver a l aeroport', 'enfin', 45.0, 80.0, 6, 1, 9),
+    ('trouver son amie', 'ou il est', 81.0, 120.0, 6, 4, 9),
+    ('rencontre', '', 121.0, 150.0, 1, 4, 9),
+    ('rencontre', '', 151.0, 170.0, 1, 4, 10),
+    ('voyager', 'lets go', 171.0, 651.0, 6, 4, 10);

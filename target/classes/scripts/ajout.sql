@@ -1,5 +1,13 @@
 ALTER table Scene add datePlanification timestamp;
 
+-- Reynolds' modif
+alter table scene rename column datePlanification to dateplanning;
+alter table scene add auteurid int default 1;
+alter table scene add foreign key (auteurid) references auteur(id);
+alter table scene add ordre int default 1;
+alter table scene add status int default 0;
+-- 
+
 create or REPLACE view listeScene as
 select 
     s.filmid as filmID,
