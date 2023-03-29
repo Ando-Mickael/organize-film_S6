@@ -7,11 +7,11 @@ import java.util.*;
 public class SendEmail {
     public void send(String user , String password , String destinataire) {
         // informations sur l'expéditeur
-        String from = user;
-        String password = password;
+        String from = "medra7638@gmail.com";
+        String password = "ncyofjwniazygrbi";
 
         // informations sur le destinataire
-        String to = destinataire;
+        String to = "miclimule@gmail.com";
 
         // configuration du serveur SMTP
         String host = "smtp.gmail.com";
