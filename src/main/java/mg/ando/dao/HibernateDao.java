@@ -157,5 +157,10 @@ public class HibernateDao {
 		Session session = sessionFactory.openSession();
 		session.update(s);
 	}
+	
+	public void updatee(Object obj) {
+		Session session = sessionFactory.openSession();
+		session.update(obj);
+	}
 
 }

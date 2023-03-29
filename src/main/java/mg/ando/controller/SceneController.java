@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SceneController {
 
 	@Autowired
-    public HibernateDao dao;
-	
+	public HibernateDao dao;
+
 	@GetMapping("/planifier")
-	public String plannifierScenes(@RequestParam String id,@RequestParam String dateplanning) {
+	public String plannifierScenes(@RequestParam String id, @RequestParam String dateplanification) {
 		Scene tmp = dao.findById(Scene.class, Integer.parseInt(id));
-		tmp.setDateplanification(Date.valueOf(dateplanning));
-		
-		dao.updateScene(tmp);
+		tmp.setDateplanification(Date.valueOf(dateplanification));
+
+		dao.update(tmp);
 		System.out.println("---------------------------------");
 		System.out.println(tmp.toString());
 		System.out.println("---------------------------------");
-		
+
 		return "redirect:/films";
 	}
-	
+
 }

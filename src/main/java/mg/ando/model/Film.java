@@ -40,4 +40,11 @@ public class Film {
 		this.nom = nom;
 	}
 
+	@Override
+	public String toString() {
+		return "Film{" + "id=" + id + ", nom=" + nom + '}';
+	}
+
+	
+	
 }

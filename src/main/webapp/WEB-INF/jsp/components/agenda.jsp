@@ -50,7 +50,7 @@
                                     <td><%=s.getNom()%></td>
                                     <td><%=tmp.getPlateau()%></td>
                                     <td><%=s.getDuree()%> min</td>
-                                    <td><a href="planifier?id=<%=s.getId()%>&dateplanning=<%=dateTournage%>"><span class="badge bg-success">Plannifier</span></a></td>
+                                    <td><a href="planifier?id=<%=s.getId()%>&dateplanification=<%=dateTournage%>"><span class="badge bg-success">Plannifier</span></a></td>
                                 </tr>
                                 <% }%>
                             </tbody>

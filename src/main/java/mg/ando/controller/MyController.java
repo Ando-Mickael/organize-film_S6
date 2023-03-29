@@ -75,4 +75,14 @@ public class MyController {
 		return "index";
 	}
 	
+	@GetMapping("/addFilm")
+	public String addFilm(@RequestParam String nom, @RequestParam String id) {
+		Film film = dao.findById(Film.class, Integer.parseInt(id));
+		film.setNom(nom);
+		dao.update(film);
+		
+		System.out.println(film.toString());
+		
+		return "redirect:/films";
+	}
 }
