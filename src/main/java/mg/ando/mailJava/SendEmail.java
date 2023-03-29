@@ -5,13 +5,13 @@ import javax.mail.internet.*;
 import java.util.*;
 
 public class SendEmail {
-    public void send(String user , String password , String destinataire) {
+    public void send(String destinataire , String pdf) {
         // informations sur l'expéditeur
         String from = "medra7638@gmail.com";
         String password = "ncyofjwniazygrbi";
 
         // informations sur le destinataire
-        String to = "miclimule@gmail.com";
+        String to = destinataire;
 
         // configuration du serveur SMTP
         String host = "smtp.gmail.com";
@@ -42,7 +42,7 @@ public class SendEmail {
 
             // création de la pièce jointe
             MimeBodyPart attachmentPart = new MimeBodyPart();
-            attachmentPart.attachFile("5_Sardinas_Patterson.pdf");
+            attachmentPart.attachFile(pdf);
 
             // création du corps du message
             MimeBodyPart textPart = new MimeBodyPart();
