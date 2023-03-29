@@ -15,7 +15,7 @@ select
     p.nom as Plateau ,
     s.id as Sceneid,
     s.duree as duree,
-    s.datePlanification as datePlanification
+    s.dateplanning as datePlanification
     from Scene s
     join Plateau p on p.id = s.Plateauid
     group by p.id , p.nom , s.id , s.filmid;
@@ -49,3 +49,4 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+
