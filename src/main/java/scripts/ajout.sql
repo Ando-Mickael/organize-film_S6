@@ -49,3 +49,14 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+
+
+create or REPLACE FUNCTION newAgenda(dateDebut date)
+RETURNS SETOF agendaType AS $$
+DECLARE
+    row RECORD;
+BEGIN
+    
+END;
+$$
+LANGUAGE plpgsql;
